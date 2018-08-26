@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <button type="button" (click)="getCharacters()" class="btn">GET CHARACTERS</button>
+  <div class="left">
+    <div *ngIf="characters !== undefined">
+      <ul *ngFor="let ch of characters">
+        <li><a href="" (click)="getProfile(ch.name,$event)">{{ch.name}}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="right">
+    <div class="image" *ngIf="profile !== undefined">
+      <h3 style="margin: 0 0 7% 29%">{{name}}</h3>
+      <img src="{{profile.imagePath}}" alt="{{name}}" style="max-width:350px" />
+    </div>
+    <div class="list"  *ngIf="profile !== undefined">
+      <h3>Stories</h3>
+      <ul *ngFor="let story of profile.stories">
+        <li>{{story.name}}</li>
+      </ul>
+      <h3>Comics</h3>
+      <ul *ngFor="let comic of profile.comics">
+        <li>{{comic.title}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
